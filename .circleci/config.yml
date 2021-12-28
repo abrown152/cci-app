@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run:
           name: Install bundler
-          command: gem install bundler -v 2.2.32 | bundle install
+          command: gem install bundler -v 2.2.32 | bundle install --jobs=4 --retry=3 --path vendor/bundle
       - ruby/bundle-install
 
 # Invoke jobs via workflows
