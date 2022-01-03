@@ -17,7 +17,7 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-      - run: bundle exec rake test:system
+      - run: bin/rails test:system
 
 
 # Invoke jobs via workflows
