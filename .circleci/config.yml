@@ -13,11 +13,14 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:3.0.3-buster-node
+      - image: circleci/postgres:9.6
+        environment:
+          POSTGRES_HOST_AUTH_METHOD: trust
     executor: ruby/default
     steps:
       - checkout
       - ruby/install-deps
-      - run: bin/rails test:system
+      - run: bundle exec rails test:system
 
 
 # Invoke jobs via workflows
