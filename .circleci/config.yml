@@ -18,12 +18,8 @@ jobs:
       - checkout
       - ruby/install-deps
       - ruby/rspec-test
-  test:
-    docker:
-      - image: circleci/ruby:3.0.3-buster-node
-    steps:
-      name: Run system tests
-      run: bundle exec rake test:system
+      - run: bundle exec rake test:system
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -32,4 +28,3 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build
-      - test
